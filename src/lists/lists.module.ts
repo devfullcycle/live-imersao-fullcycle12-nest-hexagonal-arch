@@ -1,16 +1,16 @@
+import { HttpModule } from '@nestjs/axios';
 import { Module } from '@nestjs/common';
-import { ListsService } from './lists.service';
-import { ListsController } from './lists.controller';
 import { SequelizeModule } from '@nestjs/sequelize';
 import { ListModel } from './entities/list.model';
-import { HttpModule } from '@nestjs/axios';
-import { ListGatewaySequelize } from './gateways/list-gateway-sequelize';
 import { ListGatewayHttp } from './gateways/list-gateway-http';
+import { ListGatewaySequelize } from './gateways/list-gateway-sequelize';
+import { ListsController } from './lists.controller';
+import { ListsService } from './lists.service';
 //import { CreateListInCrmListener } from './listeners/create-list-in-crm.listener';
-import { EventEmitter2 } from '@nestjs/event-emitter';
 import { BullModule } from '@nestjs/bull';
-import { PublishListCreatedListener } from './listeners/publish-list-created.listener';
+import { EventEmitter2 } from '@nestjs/event-emitter';
 import { CreateListInCrmJob } from './jobs/create-list-in-crm.job';
+import { PublishListCreatedListener } from './listeners/publish-list-created.listener';
 
 @Module({
   imports: [
